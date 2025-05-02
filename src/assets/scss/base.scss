@@ -9,6 +9,14 @@ body {
   }
 }
 
+a {
+  transition: opacity 0.4s ease;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
 .container {
   box-sizing: border-box;
   max-width: 1200px;

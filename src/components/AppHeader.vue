@@ -81,16 +81,16 @@ onUnmounted(() => {
   top: 0;
   width: 100%;
   background-color: #fff;
+  box-shadow: 0 3px 5px rgba(110, 110, 110, 0.25);
+
+  @include mq-down() {
+    padding: 10px 0;
+  }
 
   &__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
-
-    @include mq-down() {
-      height: 60px;
-    }
   }
 
   &__left {

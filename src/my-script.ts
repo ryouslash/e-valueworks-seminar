@@ -4,11 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   applyOrObserve('.js-observe-element', observer)
 })
 
-// リソース読み込み後
-window.addEventListener('load', () => {
-  initAnchorScroll()
-})
-
 /*
  *ビューポートタグをユーザーエージェントに応じて書き換えるロジック
  */
@@ -45,15 +40,6 @@ const funcViewportContent = {
 }
 
 /*
- *クラス削除関数（特定のセレクタにのみ適用）
- */
-// function removeClassFromOtherElements(selector: string, className: string) {
-//   document.querySelectorAll(selector).forEach((el) => {
-//     el.classList.remove(className);
-//   });
-// }
-
-/*
  *Intersection Observerを使ってビューポートに表示された要素に特定のクラス名をつけるロジック
  */
 const observer = new IntersectionObserver(
@@ -80,53 +66,5 @@ function applyOrObserve(targetSelector: string, observer: IntersectionObserver) 
     } else {
       observer.observe(element)
     }
-  })
-}
-
-/**
- * スムーススクロールの実装ロジック
- */
-function initAnchorScroll() {
-  const header: HTMLElement | null = document.querySelector('.header')
-  const headerHeight = header ? header.offsetHeight : 0
-
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault()
-      const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href')
-      if (!href) return
-
-      const target =
-        href === '#' || href === '' ? document.documentElement : document.querySelector(href)
-      if (!target) return
-
-      const targetY = target.getBoundingClientRect().top + window.scrollY - headerHeight
-
-      // 以下が smoothScrollTo の処理
-      const startY = window.scrollY
-      const distance = targetY - startY
-      const duration = 1500
-      const startTime = performance.now()
-
-      //イージング関数（0.5までは数値が大きくなるほど速くなり、以降は1に近づくほど緩やかになる）
-      function easeInOutQuad(t: number) {
-        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
-      }
-
-      // currentTimeはrequestAnimationFrameによって自動で渡される引数
-      function scrollStep(currentTime: number) {
-        const elapsed = currentTime - startTime
-        const progress = Math.min(elapsed / duration, 1)
-        const ease = easeInOutQuad(progress)
-        window.scrollTo(0, startY + distance * ease)
-
-        //経過時間が設定したアニメーション時間を超えるまで再実行
-        if (elapsed < duration) {
-          requestAnimationFrame(scrollStep)
-        }
-      }
-      // 初回に requestAnimationFrame(scrollStep) を呼び、次のフレームで scrollStep(currentTime) を実行
-      requestAnimationFrame(scrollStep)
-    })
   })
 }

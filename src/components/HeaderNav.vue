@@ -34,14 +34,14 @@ import { RouterLink } from 'vue-router'
       position: relative;
       z-index: 1;
       display: block;
-      padding: 10px;
+      padding: 20px 10px;
       transition: opacity 0.4s;
       cursor: pointer;
 
       &::after {
         position: absolute;
         z-index: 1;
-        top: calc(100% + 5px);
+        bottom: 0;
         left: 0;
         right: 100%;
         height: 2px;
