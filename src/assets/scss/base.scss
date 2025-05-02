@@ -1,0 +1,23 @@
+@use '@/assets/scss/breakpoint' as *;
+
+body {
+  min-width: 1200px;
+  font-family: 'Noto Sans JP', sans-serif;
+
+  @include mq-down() {
+    min-width: initial;
+  }
+}
+
+.container {
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  @include mq-down(sm) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
  *ビューポートタグをユーザーエージェントに応じて書き換えるロジック
  */
 const funcViewportContent = {
-  FIXED_PC_BASE_WIDTH: 1300,
+  FIXED_PC_BASE_WIDTH: 1200,
   FIXED_SP_BASE_WIDTH: 375,
 
   insertViewport(content: string) {
@@ -87,7 +87,7 @@ function applyOrObserve(targetSelector: string, observer: IntersectionObserver) 
  * スムーススクロールの実装ロジック
  */
 function initAnchorScroll() {
-  const header: HTMLElement | null = document.querySelector('.l-header')
+  const header: HTMLElement | null = document.querySelector('.header')
   const headerHeight = header ? header.offsetHeight : 0
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
