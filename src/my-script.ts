@@ -27,7 +27,7 @@ const funcViewportContent = {
       // 〜375
       if (debug) console.log('〜375')
       this.insertViewport(`width=${this.FIXED_SP_BASE_WIDTH}`)
-    } else if (width >= this.FIXED_SP_BASE_WIDTH + 1 && width < 767) {
+    } else if (width >= this.FIXED_SP_BASE_WIDTH + 1 && width <= 767) {
       if (debug) console.log('376〜767')
       // 376〜767
       this.insertViewport('width=device-width, initial-scale=1.0')

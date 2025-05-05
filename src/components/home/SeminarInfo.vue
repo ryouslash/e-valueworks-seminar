@@ -22,7 +22,7 @@ const fetchEvents = async () => {
         page: page.value,
         per: 5,
         since: since.value?.replace(/-/g, ''),
-        teacher: 729106,
+        // teacher: 729106,
       },
       timeout: 10000,
     })
@@ -34,8 +34,9 @@ const fetchEvents = async () => {
         page: page.value + 1,
         per: 5,
         since: since.value?.replace(/-/g, ''),
-        teacher: 37092,
+        // teacher: 729106,
       },
+      timeout: 10000,
     })
     hasNext.value = nextResponse.data.events.length > 0
   } catch (err: unknown) {
@@ -138,7 +139,6 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-@use '@/assets/scss/variables.scss' as *;
 @use '@/assets/scss/breakpoint.scss' as *;
 
 .seminar {

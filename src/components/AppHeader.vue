@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
-import { RouterLink } from 'vue-router'
 
 import GlobalNav from '@/components/GlobalNav.vue'
 import DrawerMenu from '@/components/DrawerMenu.vue'
@@ -35,12 +34,12 @@ onUnmounted(() => {
     <div class="container">
       <div class="header__inner">
         <div class="header__left">
-          <RouterLink to="/">
+          <a href="/">
             <div class="header__logo">
               <img src="/public/logo.svg" alt="" />
             </div>
-            <p>セミナー情報など</p>
-          </RouterLink>
+            <p>ホームページ作成セミナー</p>
+          </a>
         </div>
 
         <div class="header__right">

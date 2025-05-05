@@ -1,13 +1,11 @@
-<script setup lang="ts">
-import { RouterLink } from 'vue-router'
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="drawer">
     <div class="drawer__inner container">
       <ul class="drawer__items">
         <li class="drawer__item">
-          <RouterLink to="/">ホーム<span>HOME</span></RouterLink>
+          <a href="/">ホーム<span>HOME</span></a>
         </li>
         <li class="drawer__item">
           <a href="#profile">講師プロフィール<span>PROFILE</span></a>
