@@ -1,7 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import SeminarInfo from '@/components/home/SeminarInfo.vue'
+</script>
 
 <template>
-  <div class="home">
-    <h1>This is an home page</h1>
-  </div>
+  <SeminarInfo />
 </template>

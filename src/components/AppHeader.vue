@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HeaderNav from '@/components/HeaderNav.vue'
-import HeaderDrawer from '@/components/HeaderDrawer.vue'
+import GlobalNav from '@/components/GlobalNav.vue'
+import DrawerMenu from '@/components/DrawerMenu.vue'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -33,15 +33,15 @@ onUnmounted(() => {
     <div class="container">
       <div class="header__inner">
         <div class="header__left">
-          <h1 class="header__logo">
-            <img src="/public/logo.svg" alt="E-VALUE WORKS WRITE" />
-          </h1>
-          <p>セミナー情報サイト</p>
+          <div class="header__logo">
+            <img src="/public/logo.svg" alt="" />
+          </div>
+          <p>セミナー情報など</p>
         </div>
 
         <div class="header__right">
           <div class="header__nav">
-            <HeaderNav />
+            <GlobalNav />
           </div>
 
           <div class="header__btn" @click="toggleMenu">
@@ -65,7 +65,7 @@ onUnmounted(() => {
     </div>
     <transition name="fade">
       <div v-if="isOpen && isMobile" class="header__drawer">
-        <HeaderDrawer />
+        <DrawerMenu />
       </div>
     </transition>
   </header>
@@ -75,22 +75,30 @@ onUnmounted(() => {
 @use '@/assets/scss/breakpoint' as *;
 
 .header {
-  position: fixed;
-  z-index: 99;
-  left: 0;
-  top: 0;
-  width: 100%;
   background-color: #fff;
-  box-shadow: 0 3px 5px rgba(110, 110, 110, 0.25);
+  box-shadow: 0 0.3rem 0.5rem rgba(110, 110, 110, 0.25);
 
   @include mq-down() {
-    padding: 10px 0;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 1rem 0;
+
+    @include mq-down() {
+      padding: 0;
+    }
   }
 
   &__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include mq-down() {
+      height: 6rem;
+    }
   }
 
   &__left {
@@ -103,10 +111,10 @@ onUnmounted(() => {
   }
 
   &__logo {
-    width: 250px;
+    width: 25rem;
 
     @include mq-down() {
-      width: 160px;
+      width: 16rem;
     }
   }
 
@@ -120,8 +128,8 @@ onUnmounted(() => {
     position: relative;
     z-index: 1;
     display: none;
-    width: 30px;
-    height: 30px;
+    width: 3rem;
+    height: 3rem;
     cursor: pointer;
 
     @include mq-down() {
@@ -131,6 +139,7 @@ onUnmounted(() => {
     svg {
       width: 100%;
       height: auto;
+      color: #333;
       transition:
         transform 0.4s ease,
         opacity 0.4s ease;

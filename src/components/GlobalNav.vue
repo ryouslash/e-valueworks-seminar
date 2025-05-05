@@ -9,10 +9,10 @@ import { RouterLink } from 'vue-router'
         <RouterLink to="/">ホーム<span>HOME</span></RouterLink>
       </li>
       <li class="gnav__item">
-        <a href="#profile">講師プロフィール<span>PROFILE</span></a>
+        <a href="#seminar">セミナー情報<span>SEMINAR</span></a>
       </li>
       <li class="gnav__item">
-        <a href="#seminar">セミナー情報<span>SEMINAR</span></a>
+        <a href="#profile">講師プロフィール<span>PROFILE</span></a>
       </li>
       <li class="gnav__item">
         <a href="#contact">お問い合わせ<span>CONTACT</span></a>
@@ -34,7 +34,7 @@ import { RouterLink } from 'vue-router'
       position: relative;
       z-index: 1;
       display: block;
-      padding: 20px 10px;
+      padding: 2rem 1rem;
       transition: opacity 0.4s;
       cursor: pointer;
 
@@ -44,7 +44,7 @@ import { RouterLink } from 'vue-router'
         bottom: 0;
         left: 0;
         right: 100%;
-        height: 2px;
+        height: 0.2rem;
         background-color: #333;
         transition: right 0.4s ease;
         content: '';

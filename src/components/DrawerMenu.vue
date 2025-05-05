@@ -10,10 +10,10 @@ import { RouterLink } from 'vue-router'
           <RouterLink to="/">ホーム<span>HOME</span></RouterLink>
         </li>
         <li class="drawer__item">
-          <a href="#profile">講師プロフィール<span>PROFILE</span></a>
+          <a href="#seminar">セミナー情報<span>SEMINAR</span></a>
         </li>
         <li class="drawer__item">
-          <a href="#seminar">セミナー情報<span>SEMINAR</span></a>
+          <a href="#profile">講師プロフィール<span>PROFILE</span></a>
         </li>
         <li class="drawer__item">
           <a href="#contact">お問い合わせ<span>CONTACT</span></a>
@@ -39,7 +39,7 @@ import { RouterLink } from 'vue-router'
       z-index: 1;
       display: block;
       padding: 0.5rem 0;
-      border-bottom: 2px dotted #333;
+      border-bottom: 0.2rem dotted #333;
 
       span {
         position: absolute;
