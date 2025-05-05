@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { onMounted, onUnmounted, ref } from 'vue'
+import { RouterLink } from 'vue-router'
+
 import GlobalNav from '@/components/GlobalNav.vue'
 import DrawerMenu from '@/components/DrawerMenu.vue'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import { onMounted, onUnmounted, ref } from 'vue'
 const isOpen = ref(false)
 const isMobile = ref(window.innerWidth <= 767)
 
@@ -33,10 +35,12 @@ onUnmounted(() => {
     <div class="container">
       <div class="header__inner">
         <div class="header__left">
-          <div class="header__logo">
-            <img src="/public/logo.svg" alt="" />
-          </div>
-          <p>セミナー情報など</p>
+          <RouterLink to="/">
+            <div class="header__logo">
+              <img src="/public/logo.svg" alt="" />
+            </div>
+            <p>セミナー情報など</p>
+          </RouterLink>
         </div>
 
         <div class="header__right">

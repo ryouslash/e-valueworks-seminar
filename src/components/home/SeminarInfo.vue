@@ -24,6 +24,7 @@ const fetchEvents = async () => {
         since: since.value?.replace(/-/g, ''),
         teacher: 729106,
       },
+      timeout: 10000,
     })
     events.value = response.data.events
 
@@ -39,7 +40,11 @@ const fetchEvents = async () => {
     hasNext.value = nextResponse.data.events.length > 0
   } catch (err: unknown) {
     if (axios.isAxiosError(err)) {
-      error.value = err.message
+      if (err.code === 'ECONNABORTED') {
+        error.value = '通信がタイムアウトしました（10秒以上応答がありません）'
+      } else {
+        error.value = err.message
+      }
     } else {
       error.value = '不明なエラーが発生しました'
     }

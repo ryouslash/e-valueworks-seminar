@@ -10,10 +10,10 @@ import { RouterLink } from 'vue-router'
           <RouterLink to="/">ホーム<span>HOME</span></RouterLink>
         </li>
         <li class="drawer__item">
-          <a href="#seminar">セミナー情報<span>SEMINAR</span></a>
+          <a href="#profile">講師プロフィール<span>PROFILE</span></a>
         </li>
         <li class="drawer__item">
-          <a href="#profile">講師プロフィール<span>PROFILE</span></a>
+          <a href="#seminar">セミナー情報<span>SEMINAR</span></a>
         </li>
         <li class="drawer__item">
           <a href="#contact">お問い合わせ<span>CONTACT</span></a>
