@@ -2,7 +2,7 @@
 import { ref, onMounted, watch } from 'vue'
 import axios from 'axios'
 import type { EventItem } from '@/types'
-import SeminarInfoPagination from '@/components/home/SeminarInfoPagination.vue'
+import SeminarPagination from '@/components/SeminarPagination.vue'
 
 const events = ref<EventItem[]>([])
 const isLoading = ref(false)
@@ -68,9 +68,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="seminar">
+  <section id="seminar" class="seminar">
     <div class="seminar__inner container">
-      <h1 class="seminar__section-title title01">開催予定のセミナー一覧</h1>
+      <h2 class="seminar__section-title title01">開催予定のセミナー一覧</h2>
 
       <!-- 絞り込みフォーム -->
       <div class="seminar__filters">
@@ -113,7 +113,7 @@ onMounted(() => {
                 })
               }}
             </time>
-            <h2 class="seminar__title">{{ event.title }}</h2>
+            <h3 class="seminar__title">{{ event.title }}</h3>
             <p class="seminar__catchcopy">{{ event.catchcopy }}</p>
             <div class="seminar__capacity">
               <span>定員：{{ event.capacity }} / 予約：{{ event.reserved }}</span>
@@ -127,7 +127,7 @@ onMounted(() => {
         </li>
       </ul>
 
-      <SeminarInfoPagination
+      <SeminarPagination
         v-if="!isLoading && !error && events.length > 0"
         :page="page"
         :has-next="hasNext"
@@ -135,7 +135,7 @@ onMounted(() => {
         @go-next="page++"
       />
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

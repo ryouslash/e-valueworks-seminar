@@ -1,19 +1,21 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { RouterLink } from 'vue-router'
+</script>
 
 <template>
   <nav class="gnav">
     <ul class="gnav__items">
       <li class="gnav__item">
-        <a href="/">ホーム<span>HOME</span></a>
+        <RouterLink to="">ホーム<span>HOME</span></RouterLink>
       </li>
       <li class="gnav__item">
-        <a href="#profile">講師プロフィール<span>PROFILE</span></a>
+        <RouterLink to="#seminar">セミナー情報<span>SEMINAR</span></RouterLink>
       </li>
       <li class="gnav__item">
-        <a href="#seminar">セミナー情報<span>SEMINAR</span></a>
+        <RouterLink to="#profile">講師プロフィール<span>PROFILE</span></RouterLink>
       </li>
       <li class="gnav__item">
-        <a href="#contact">お問い合わせ<span>CONTACT</span></a>
+        <RouterLink to="#contact">お問い合わせ<span>CONTACT</span></RouterLink>
       </li>
     </ul>
   </nav>

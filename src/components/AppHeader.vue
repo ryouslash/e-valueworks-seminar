@@ -35,9 +35,9 @@ onUnmounted(() => {
       <div class="header__inner">
         <div class="header__left">
           <a href="/">
-            <div class="header__logo">
-              <img src="/public/logo.svg" alt="" />
-            </div>
+            <h1 class="header__logo">
+              <img src="/public/logo.svg" alt="E VALUE WORKS ホームページ作成セミナー" />
+            </h1>
             <p>ホームページ作成セミナー</p>
           </a>
         </div>
@@ -68,7 +68,7 @@ onUnmounted(() => {
     </div>
     <transition name="fade">
       <div v-if="isOpen && isMobile" class="header__drawer">
-        <DrawerMenu />
+        <DrawerMenu @close="isOpen = false" />
       </div>
     </transition>
   </header>

@@ -1,20 +1,34 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { RouterLink } from 'vue-router'
+
+const emit = defineEmits(['close'])
+
+const handleClick = () => {
+  emit('close')
+}
+</script>
 
 <template>
   <div class="drawer">
     <div class="drawer__inner container">
       <ul class="drawer__items">
         <li class="drawer__item">
-          <a href="/">ホーム<span>HOME</span></a>
+          <RouterLink to="" @click="handleClick">ホーム<span>HOME</span></RouterLink>
         </li>
         <li class="drawer__item">
-          <a href="#profile">講師プロフィール<span>PROFILE</span></a>
+          <RouterLink to="#seminar" @click="handleClick"
+            >セミナー情報<span>SEMINAR</span></RouterLink
+          >
         </li>
         <li class="drawer__item">
-          <a href="#seminar">セミナー情報<span>SEMINAR</span></a>
+          <RouterLink to="#profile" @click="handleClick"
+            >講師プロフィール<span>PROFILE</span></RouterLink
+          >
         </li>
         <li class="drawer__item">
-          <a href="#contact">お問い合わせ<span>CONTACT</span></a>
+          <RouterLink to="#contact" @click="handleClick"
+            >お問い合わせ<span>CONTACT</span></RouterLink
+          >
         </li>
       </ul>
     </div>
