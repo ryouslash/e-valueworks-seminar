@@ -1,70 +1,4 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
-import axios from 'axios'
-import type { EventItem } from '@/types'
-import SeminarPagination from '@/components/SeminarPagination.vue'
-
-const events = ref<EventItem[]>([])
-const isLoading = ref(false)
-const error = ref<string | null>(null)
-const page = ref(1)
-const since = ref<string | null>(null)
-const hasNext = ref(false)
-
-// イベント取得
-const fetchEvents = async () => {
-  isLoading.value = true
-  error.value = null
-
-  try {
-    const response = await axios.get('https://www.street-academy.com/api/v1/events', {
-      params: {
-        page: page.value,
-        per: 5,
-        since: since.value?.replace(/-/g, ''),
-        // teacher: 729106,
-      },
-      timeout: 10000,
-    })
-    events.value = response.data.events
-
-    // 次ページの先読みチェック（1件だけ）
-    const nextResponse = await axios.get('https://www.street-academy.com/api/v1/events', {
-      params: {
-        page: page.value + 1,
-        per: 5,
-        since: since.value?.replace(/-/g, ''),
-        // teacher: 729106,
-      },
-      timeout: 10000,
-    })
-    hasNext.value = nextResponse.data.events.length > 0
-  } catch (err: unknown) {
-    if (axios.isAxiosError(err)) {
-      if (err.code === 'ECONNABORTED') {
-        error.value = '通信がタイムアウトしました（10秒以上応答がありません）'
-      } else {
-        error.value = err.message
-      }
-    } else {
-      error.value = '不明なエラーが発生しました'
-    }
-  } finally {
-    isLoading.value = false
-  }
-}
-
-watch(since, () => {
-  page.value = 1
-})
-
-watch([page, since], () => {
-  fetchEvents()
-})
-
-onMounted(() => {
-  fetchEvents()
-})
 </script>
 
 <template>
@@ -72,21 +6,7 @@ onMounted(() => {
     <div class="seminar__inner container">
       <h2 class="seminar__section-title title01">開催予定のセミナー一覧</h2>
 
-      <!-- 絞り込みフォーム -->
-      <div class="seminar__filters">
-        <div class="seminar__filter-item seminar__date-filter">
-          <label for="date">開催日：</label>
-          <input id="date" v-model="since" type="date" /> 〜
-        </div>
-      </div>
-
-      <!-- 表示結果 -->
-      <!-- ローディング画面 -->
-      <div v-if="isLoading" class="seminar__loading"><font-awesome-icon icon="spinner" spin /></div>
-      <!-- エラー画面 -->
-      <div v-else-if="error" class="seminar__error">{{ error }}</div>
-      <!-- 該当データなし -->
-      <div v-else-if="events.length === 0" class="seminar__no-data">
+      <div class="seminar__no-data">
         <p>現在、開催予定のセミナーはありません。</p>
         <p>
           開催を希望されるセミナーがございましたら、お問い合わせよりリクエストをお送りください。
@@ -94,46 +14,27 @@ onMounted(() => {
         <p>※ご要望に必ずしもお応えできるわけではございませんので、あらかじめご了承ください。</p>
       </div>
       <!-- 該当データあり -->
-      <ul v-else class="seminar__lists">
-        <li v-for="event in events" :key="event.event_id" class="seminar__list">
+      <!-- <ul class="seminar__lists">
+        <li class="seminar__list">
           <div class="seminar__list-left">
-            <img :src="event.image_url" alt="" />
+            <img src="" alt="" />
           </div>
 
           <div class="seminar__list-right">
-            <time :datetime="event.start_at" class="seminar__date">
-              {{
-                new Date(event.start_at).toLocaleString('ja-JP', {
-                  timeZone: 'Asia/Tokyo',
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric',
-                  hour: '2-digit',
-                  minute: '2-digit',
-                })
-              }}
-            </time>
-            <h3 class="seminar__title">{{ event.title }}</h3>
-            <p class="seminar__catchcopy">{{ event.catchcopy }}</p>
+            <time datetime="" class="seminar__date"> 2025年5月7日 </time>
+            <h3 class="seminar__title">タイトル</h3>
+            <p class="seminar__catchcopy">キャッチコピー</p>
             <div class="seminar__capacity">
-              <span>定員：{{ event.capacity }} / 予約：{{ event.reserved }}</span>
-              <p v-if="event.capacity === event.reserved">※キャンセル待ち</p>
+              <span>定員：1 / 予約：1</span>
+              <p>※キャンセル待ち</p>
             </div>
-            <p class="seminar__price">料金：{{ event.price }}円（税込）</p>
-            <div v-if="event.capacity !== event.reserved" class="seminar__book-btn">
-              <a :href="event.url" target="_blank">予約はこちら</a>
+            <p class="seminar__price">料金：5,400円（税込）</p>
+            <div class="seminar__book-btn">
+              <a href="#" target="_blank">予約はこちら</a>
             </div>
           </div>
         </li>
-      </ul>
-
-      <SeminarPagination
-        v-if="!isLoading && !error && events.length > 0"
-        :page="page"
-        :has-next="hasNext"
-        @go-prev="page--"
-        @go-next="page++"
-      />
+      </ul> -->
     </div>
   </section>
 </template>
