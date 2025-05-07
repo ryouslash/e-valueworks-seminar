@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <section id="seminar" class="seminar">
@@ -48,6 +47,10 @@
 
   &__section-title {
     margin-bottom: 6rem;
+
+    @include mq-down() {
+      margin-bottom: 3rem;
+    }
   }
 
   &__filters {

@@ -1,5 +1,6 @@
 @use '@/assets/scss/breakpoint' as *;
 
+// ベース、ユーティリティ
 html {
   font-size: 62.5%;
 
@@ -37,4 +38,22 @@ a {
     padding-left: 2rem;
     padding-right: 2rem;
   }
+}
+
+.marker {
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 100% 1rem;
+
+  &.is-orange {
+    background-image: linear-gradient(to right, #fbddc2 0%, #fbddc2 100%);
+  }
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.inline-block {
+  display: inline-block;
 }
