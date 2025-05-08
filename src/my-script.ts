@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
  *ビューポートタグをユーザーエージェントに応じて書き換えるロジック
  */
 const funcViewportContent = {
-  FIXED_PC_BASE_WIDTH: 1200,
-  FIXED_SP_BASE_WIDTH: 375,
+  FIXED_PC_MAX_WIDTH: 1920,
+  FIXED_SP_MIN_WIDTH: 375,
 
   insertViewport(content: string) {
     const metaTag = `<meta name="viewport" id="viewport" content="${content}">`
@@ -22,18 +22,21 @@ const funcViewportContent = {
 
     if (debug) console.log(width)
 
-    if (width <= this.FIXED_SP_BASE_WIDTH) {
-      // 〜375
-      if (debug) console.log('〜375')
-      this.insertViewport(`width=${this.FIXED_SP_BASE_WIDTH}`)
-    } else if (width >= this.FIXED_SP_BASE_WIDTH + 1 && width <= 767) {
-      if (debug) console.log('376〜767')
-      // 376〜767
+    if (width < this.FIXED_SP_MIN_WIDTH) {
+      // 〜375未満
+      if (debug) console.log('〜375未満')
+      this.insertViewport(`width=${this.FIXED_SP_MIN_WIDTH}`)
+    } else if (width >= this.FIXED_SP_MIN_WIDTH && width < 768) {
+      if (debug) console.log('375以上〜768未満')
+      // 375以上〜768未満
+      this.insertViewport('width=device-width, initial-scale=1.0')
+    } else if (width >= 768 && width <= this.FIXED_PC_MAX_WIDTH) {
+      if (debug) console.log('768以上〜1920以下')
+      // 768以上〜1920以下
       this.insertViewport('width=device-width, initial-scale=1.0')
     } else {
-      if (debug) console.log('768〜')
-      // 768〜
-      this.insertViewport(`width=${this.FIXED_PC_BASE_WIDTH}`)
+      // 1921以上
+      this.insertViewport(`width=${this.FIXED_PC_MAX_WIDTH}`)
     }
   },
 }

@@ -19,14 +19,14 @@
 .mv {
   position: relative;
   z-index: 1;
-  padding: 8rem 0;
+  padding: 80px 0;
   text-align: center;
   background-image: url('@/assets/img/mv_bg.jpg');
   background-size: cover;
   background-position: center 10%;
 
   @include mq-down(sm) {
-    padding: 6rem 0;
+    padding: 60px 0;
   }
 
   &::after {
@@ -41,14 +41,14 @@
   }
 
   &__title {
-    margin-bottom: 6rem;
-    font-size: 3.6rem;
+    margin-bottom: 60px;
+    font-size: 36px;
     font-weight: bold;
-    text-shadow: 0.1rem 0.2rem 0.4rem #666;
+    text-shadow: 1px 2px 4px #666;
     color: #fff;
 
     @include mq-down(sm) {
-      font-size: 2.8rem;
+      font-size: 28px;
     }
   }
 
@@ -68,10 +68,10 @@
 
   &__list {
     padding: 20px;
-    width: calc(100% / 3 - 4rem);
+    width: calc(100% / 3 - 40px);
     font-weight: 500;
     background-color: #fff;
-    box-shadow: 0.1rem 0.2rem 0.4rem #666;
+    box-shadow: 1px 2px 4px #666;
 
     @include mq-down() {
       width: 100%;

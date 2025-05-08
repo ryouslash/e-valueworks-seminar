@@ -1,18 +1,13 @@
 <script setup lang="ts">
-import { ref, defineExpose } from 'vue'
-import MvSection from '@/components/MvSection.vue'
-import SeminarSection from '@/components/SeminarSection.vue'
-import ProfileSection from '@/components/ProfileSection.vue'
-
-const seminarRef = ref<HTMLElement | null>(null)
-
-defineExpose({
-  seminarRef,
-})
+import MvSection from '@/components/home/MvSection.vue'
+import SeminarSection from '@/components/home/SeminarSection.vue'
+import ProfileSection from '@/components/home/ProfileSection.vue'
+import VoiceSection from '@/components/home/VoiceSection.vue'
 </script>
 
 <template>
   <MvSection />
   <SeminarSection />
   <ProfileSection />
+  <VoiceSection />
 </template>

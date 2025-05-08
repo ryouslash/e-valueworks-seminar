@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
+import { RouterLink } from 'vue-router'
 
 import GlobalNav from '@/components/GlobalNav.vue'
 import DrawerMenu from '@/components/DrawerMenu.vue'
@@ -34,12 +35,12 @@ onUnmounted(() => {
     <div class="container">
       <div class="header__inner">
         <div class="header__left">
-          <a href="/">
+          <RouterLink to="/">
             <h1 class="header__logo">
               <img src="/public/logo.svg" alt="E VALUE WORKS ホームページ作成セミナー" />
             </h1>
             <p>ホームページ作成セミナー</p>
-          </a>
+          </RouterLink>
         </div>
 
         <div class="header__right">
@@ -79,7 +80,7 @@ onUnmounted(() => {
 
 .header {
   background-color: #fff;
-  box-shadow: 0 0.3rem 0.5rem rgba(110, 110, 110, 0.25);
+  box-shadow: 0 3px 5px rgba(110, 110, 110, 0.25);
 
   @include mq-down() {
     position: fixed;
@@ -87,7 +88,7 @@ onUnmounted(() => {
     left: 0;
     top: 0;
     width: 100%;
-    padding: 1rem 0;
+    padding: 10px 0;
 
     @include mq-down() {
       padding: 0;
@@ -100,13 +101,13 @@ onUnmounted(() => {
     align-items: center;
 
     @include mq-down() {
-      height: 6rem;
+      height: 60px;
     }
   }
 
   &__left {
     p {
-      margin-top: 0.2rem;
+      margin-top: 2px;
       font-weight: 900;
       font-size: 0.8em;
       text-align: right;
@@ -114,10 +115,10 @@ onUnmounted(() => {
   }
 
   &__logo {
-    width: 25rem;
+    width: 250px;
 
     @include mq-down() {
-      width: 16rem;
+      width: 160px;
     }
   }
 
@@ -131,8 +132,8 @@ onUnmounted(() => {
     position: relative;
     z-index: 1;
     display: none;
-    width: 3rem;
-    height: 3rem;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 
     @include mq-down() {

@@ -13,20 +13,23 @@ const handleClick = () => {
     <div class="drawer__inner container">
       <ul class="drawer__items">
         <li class="drawer__item">
-          <RouterLink to="" @click="handleClick">ホーム<span>HOME</span></RouterLink>
+          <RouterLink to="/" @click="handleClick">ホーム<span>HOME</span></RouterLink>
         </li>
         <li class="drawer__item">
-          <RouterLink to="#seminar" @click="handleClick"
+          <RouterLink to="/#seminar" @click="handleClick"
             >セミナー情報<span>SEMINAR</span></RouterLink
           >
         </li>
         <li class="drawer__item">
-          <RouterLink to="#profile" @click="handleClick"
+          <RouterLink to="/#profile" @click="handleClick"
             >講師プロフィール<span>PROFILE</span></RouterLink
           >
         </li>
         <li class="drawer__item">
-          <RouterLink to="#contact" @click="handleClick"
+          <RouterLink to="/#voice" @click="handleClick">受講者の声<span>VOICE</span></RouterLink>
+        </li>
+        <li class="drawer__item">
+          <RouterLink to="/#contact" @click="handleClick"
             >お問い合わせ<span>CONTACT</span></RouterLink
           >
         </li>
@@ -38,20 +41,20 @@ const handleClick = () => {
 <style scoped lang="scss">
 .drawer {
   overflow-y: auto;
-  max-height: calc(100vh - 6rem);
-  max-height: calc(100dvh - 6rem);
+  max-height: calc(100vh - 60px);
+  max-height: calc(100dvh - 60px);
 
   &__inner {
-    padding-top: 1rem;
-    padding-bottom: 2rem;
+    padding-top: 10px;
+    padding-bottom: 20px;
   }
   &__item {
     a {
       position: relative;
       z-index: 1;
       display: block;
-      padding: 0.5rem 0;
-      border-bottom: 0.2rem dotted #333;
+      padding: 5px 0;
+      border-bottom: 2px dotted #333;
 
       span {
         position: absolute;
