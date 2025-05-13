@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
 </script>
 
 <template>
@@ -42,9 +41,9 @@ import { RouterLink } from 'vue-router'
 
               <p>一緒にWeb学習を始めてみませんか？</p>
             </div>
-            <div class="profile__btn">
+            <!-- <div class="profile__btn">
               <RouterLink to="/profile">もっと見る</RouterLink>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -57,21 +56,25 @@ import { RouterLink } from 'vue-router'
 @use '@/assets/scss/variables' as *;
 
 .profile {
-  padding-bottom: 60px;
+  margin-bottom: 12rem;
+
+  @include mq-down() {
+    margin-bottom: 9rem;
+  }
 
   &__title {
     position: relative;
     z-index: 1;
-    padding: 20px;
-    margin-bottom: 90px;
-    font-size: 36px;
+    padding: 2rem;
+    margin-bottom: 9rem;
+    font-size: 3.6rem;
     text-align: center;
     background-color: $color-sub;
     color: #fff;
 
     @include mq-down(sm) {
-      margin-bottom: 60px;
-      font-size: 28px;
+      margin-bottom: 6rem;
+      font-size: 2.8rem;
     }
 
     &::after {
@@ -79,9 +82,9 @@ import { RouterLink } from 'vue-router'
       z-index: 1;
       left: 50%;
       top: 100%;
-      border-right: 45px solid transparent;
-      border-left: 45px solid transparent;
-      border-top: 30px solid $color-sub;
+      border-right: 4.5rem solid transparent;
+      border-left: 4.5rem solid transparent;
+      border-top: 3rem solid $color-sub;
       transform: translateX(-50%);
       content: '';
     }
@@ -90,19 +93,19 @@ import { RouterLink } from 'vue-router'
   &__columns {
     display: flex;
     align-items: flex-start;
-    gap: 60px;
+    gap: 6rem;
 
     @include mq-down() {
       flex-direction: column;
-      gap: 30px;
+      gap: 3rem;
     }
   }
 
   &__column-left {
     flex-shrink: 0;
-    width: 500px;
-    border: 10px solid #fff;
-    box-shadow: 0 0 4px #bbb;
+    width: 50rem;
+    border: 1rem solid #fff;
+    box-shadow: 0 0 0.4rem #bbb;
 
     @include mq-down() {
       width: 100%;
@@ -120,7 +123,7 @@ import { RouterLink } from 'vue-router'
   }
 
   &__text {
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
   }
 
   &__btn {
@@ -128,8 +131,8 @@ import { RouterLink } from 'vue-router'
 
     a {
       display: inline-block;
-      border-radius: 5px;
-      padding: 10px 30px;
+      border-radius: 0.5rem;
+      padding: 1rem 3rem;
       font-weight: bold;
       background-color: #f29949;
       color: #fff;

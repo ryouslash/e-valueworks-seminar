@@ -41,20 +41,20 @@ const handleClick = () => {
 <style scoped lang="scss">
 .drawer {
   overflow-y: auto;
-  max-height: calc(100vh - 60px);
-  max-height: calc(100dvh - 60px);
+  max-height: calc(100vh - 6rem);
+  max-height: calc(100dvh - 6rem);
 
   &__inner {
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
   }
   &__item {
     a {
       position: relative;
       z-index: 1;
       display: block;
-      padding: 5px 0;
-      border-bottom: 2px dotted #333;
+      padding: 0.5rem 0;
+      border-bottom: 0.2rem dotted #333;
 
       span {
         position: absolute;

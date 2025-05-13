@@ -80,7 +80,7 @@ onUnmounted(() => {
 
 .header {
   background-color: #fff;
-  box-shadow: 0 3px 5px rgba(110, 110, 110, 0.25);
+  box-shadow: 0 0.3rem 0.5rem rgba(110, 110, 110, 0.25);
 
   @include mq-down() {
     position: fixed;
@@ -88,7 +88,7 @@ onUnmounted(() => {
     left: 0;
     top: 0;
     width: 100%;
-    padding: 10px 0;
+    padding: 1rem 0;
 
     @include mq-down() {
       padding: 0;
@@ -101,13 +101,13 @@ onUnmounted(() => {
     align-items: center;
 
     @include mq-down() {
-      height: 60px;
+      height: 6rem;
     }
   }
 
   &__left {
     p {
-      margin-top: 2px;
+      margin-top: 0.2rem;
       font-weight: 900;
       font-size: 0.8em;
       text-align: right;
@@ -115,10 +115,10 @@ onUnmounted(() => {
   }
 
   &__logo {
-    width: 250px;
+    width: 25rem;
 
     @include mq-down() {
-      width: 160px;
+      width: 16rem;
     }
   }
 
@@ -132,8 +132,8 @@ onUnmounted(() => {
     position: relative;
     z-index: 1;
     display: none;
-    width: 30px;
-    height: 30px;
+    width: 3rem;
+    height: 3rem;
     cursor: pointer;
 
     @include mq-down() {

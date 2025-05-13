@@ -42,24 +42,28 @@
 @use '@/assets/scss/breakpoint.scss' as *;
 
 .seminar {
-  padding: 60px 0;
+  padding: 12rem 0;
   background-image: url('@/assets/img/seminar_bg.png');
 
+  @include mq-down() {
+    padding: 9rem 0;
+  }
+
   &__section-title {
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 
     @include mq-down() {
-      margin-bottom: 30px;
+      margin-bottom: 3rem;
     }
   }
 
   &__filters {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
 
   &__no-data {
-    padding: 10px 20px;
-    border: 1px solid #ff2525;
+    padding: 1rem 2rem;
+    border: 0.1rem solid #ff2525;
     font-weight: bold;
     background-color: #fddee8;
     color: #ff2525;
@@ -70,28 +74,28 @@
       }
 
       &:last-of-type {
-        font-size: 14px;
+        font-size: 1.4rem;
       }
     }
   }
 
   &__list {
     display: flex;
-    gap: 20px;
-    box-shadow: 0 0 4px #aaa;
-    padding: 20px;
+    gap: 2rem;
+    box-shadow: 0 0 0.4rem #aaa;
+    padding: 2rem;
 
     @include mq-down() {
       flex-direction: column;
     }
 
     &:not(:last-of-type) {
-      margin-bottom: 20px;
+      margin-bottom: 2rem;
     }
   }
 
   &__list-left {
-    width: 300px;
+    width: 30rem;
 
     @include mq-down() {
       width: 100%;
@@ -109,40 +113,40 @@
 
   &__date {
     display: block;
-    margin-bottom: 10px;
-    font-size: 18px;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
     font-weight: bolder;
 
     @include mq-down(sm) {
-      font-size: 16px;
+      font-size: 1.6rem;
     }
   }
 
   &__title {
-    margin-bottom: 10px;
-    font-size: 20px;
+    margin-bottom: 1rem;
+    font-size: 2rem;
 
     @include mq-down(sm) {
-      font-size: 18px;
+      font-size: 1.8rem;
     }
   }
 
   &__catchcopy {
-    margin-bottom: 10px;
-    font-size: 14px;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
   }
 
   &__capacity {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-    font-size: 14px;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
 
     span {
       display: inline-block;
-      border: 2px dotted #666;
-      padding: 2px 5px;
+      border: 0.2rem dotted #666;
+      padding: 0.2rem 0.5rem;
     }
 
     p {
@@ -151,8 +155,8 @@
   }
 
   &__price {
-    margin-bottom: 10px;
-    font-size: 14px;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
   }
 
   &__book-btn {
@@ -160,15 +164,15 @@
 
     a {
       display: inline-block;
-      border-radius: 5px;
-      padding: 5px 10px;
-      font-size: 18px;
+      border-radius: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 1.8rem;
       font-weight: bold;
       background-color: #f29949;
       color: #fff;
 
       @include mq-down(sm) {
-        font-size: 16px;
+        font-size: 1.6rem;
       }
     }
   }
