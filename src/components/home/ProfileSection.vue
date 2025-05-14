@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <section id="profile" class="profile">
@@ -103,9 +102,10 @@
 
   &__column-left {
     flex-shrink: 0;
+    box-sizing: border-box;
     width: 50rem;
-    border: 1rem solid #fff;
-    box-shadow: 0 0 0.4rem #bbb;
+    border: 0.1rem solid #ccc;
+    padding: 0.9rem;
 
     @include mq-down() {
       width: 100%;
@@ -122,9 +122,9 @@
     }
   }
 
-  &__text {
+  /* &__text {
     margin-bottom: 3rem;
-  }
+  } */
 
   &__btn {
     text-align: right;
