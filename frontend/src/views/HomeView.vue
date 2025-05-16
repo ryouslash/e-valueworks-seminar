@@ -3,6 +3,7 @@ import MvSection from '@/components/home/MvSection.vue'
 import SeminarSection from '@/components/home/SeminarSection.vue'
 import ProfileSection from '@/components/home/ProfileSection.vue'
 import VoiceSection from '@/components/home/VoiceSection.vue'
+import ContactSection from '@/components/home/ContactSection.vue'
 </script>
 
 <template>
@@ -10,4 +11,5 @@ import VoiceSection from '@/components/home/VoiceSection.vue'
   <SeminarSection />
   <ProfileSection />
   <VoiceSection />
+  <ContactSection />
 </template>

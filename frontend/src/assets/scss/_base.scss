@@ -40,6 +40,19 @@ a {
   }
 }
 
+.slim-container {
+  box-sizing: border-box;
+  max-width: 100rem;
+  margin: 0 auto;
+  padding-left: 3rem;
+  padding-right: 3rem;
+
+  @include mq-down(sm) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 .marker {
   background-repeat: no-repeat;
   background-position: left bottom;
