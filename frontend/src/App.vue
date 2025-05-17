@@ -12,8 +12,12 @@ router.afterEach((to) => {
   if (title) document.title = title
 
   const descriptionTag = document.querySelector('meta[name="description"]')
-  if (descriptionTag && description) {
-    descriptionTag.setAttribute('content', description)
+  if (descriptionTag) {
+    if (description) {
+      descriptionTag.setAttribute('content', description)
+    } else {
+      descriptionTag.setAttribute('content', '')
+    }
   }
 })
 </script>
