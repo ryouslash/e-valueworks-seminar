@@ -36,9 +36,9 @@ onUnmounted(() => {
       <div class="header__inner">
         <div class="header__left">
           <RouterLink to="/">
-            <h1 class="header__logo">
+            <div class="header__logo">
               <img src="/public/logo.svg" alt="E VALUE WORKS ホームページ作成セミナー" />
-            </h1>
+            </div>
             <p>ホームページ作成セミナー</p>
           </RouterLink>
         </div>
@@ -84,7 +84,7 @@ onUnmounted(() => {
 
   @include mq-down() {
     position: fixed;
-    z-index: 99;
+    z-index: 100;
     left: 0;
     top: 0;
     width: 100%;

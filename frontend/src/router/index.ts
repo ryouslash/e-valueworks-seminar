@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
+import PrivacyView from '@/views/PrivacyView.vue'
+import NotFound from '@/views/NotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,11 +10,33 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      meta: {
+        title: 'E-VALUE WORKS ホームページ作成セミナー',
+        description: 'E-VALUE WORKSがお届けするセミナー情報をまとめたサイトです。',
+      },
+    },
+    {
+      path: '/privacy',
+      name: 'privacy',
+      component: PrivacyView,
+      meta: {
+        title: 'プライバシーポリシー | E-VALUE WORKS',
+        description: '',
+      },
+    },
+    {
+      path: '/:catchAll(.*)*',
+      name: 'notFound',
+      component: NotFound,
+      meta: {
+        title: 'お探しのページが見つかりませんでした | E-VALUE WORKS',
+        description: '',
+      },
     },
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
-      return { ...savedPosition, behavior: 'smooth' }
+      return { ...savedPosition, behavior: 'instant' }
     }
     if (to.hash) {
       console.log(to.hash)
@@ -31,7 +55,7 @@ const router = createRouter({
         return false
       }
     }
-    return { top: 0, behavior: 'smooth' }
+    return { top: 0, behavior: 'instant' }
   },
 })
 

@@ -25,6 +25,14 @@ a {
   &:hover {
     opacity: 0.6;
   }
+
+  &.underline {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .container {
@@ -73,4 +81,8 @@ a {
 
 .text-center {
   text-align: center;
+}
+
+.grecaptcha-badge {
+  z-index: 80;
 }

@@ -1,19 +1,35 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import { useRouter, RouterView } from 'vue-router'
 import AppHeader from '@/components/AppHeader.vue'
+import AppFooter from '@/components/AppFooter.vue'
+
+const router = useRouter()
+
+router.afterEach((to) => {
+  const title = to.meta.title as string
+  const description = to.meta.description as string
+
+  if (title) document.title = title
+
+  const descriptionTag = document.querySelector('meta[name="description"]')
+  if (descriptionTag && description) {
+    descriptionTag.setAttribute('content', description)
+  }
+})
 </script>
 
 <template>
   <AppHeader />
-  <main class="main">
+  <div class="content">
     <RouterView />
-  </main>
+  </div>
+  <AppFooter />
 </template>
 
 <style scoped lang="scss">
 @use '@/assets/scss/breakpoint' as *;
 
-.main {
+.content {
   @include mq-down() {
     margin-top: 60px;
   }

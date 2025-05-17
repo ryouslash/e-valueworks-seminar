@@ -7,9 +7,11 @@ import ContactSection from '@/components/home/ContactSection.vue'
 </script>
 
 <template>
-  <MvSection />
-  <SeminarSection />
-  <ProfileSection />
-  <VoiceSection />
-  <ContactSection />
+  <main class="main">
+    <MvSection />
+    <SeminarSection />
+    <ProfileSection />
+    <VoiceSection />
+    <ContactSection />
+  </main>
 </template>

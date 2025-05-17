@@ -1,16 +1,16 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="mv">
+  <section class="mv">
     <div class="mv__inner container">
-      <p class="mv__title">少人数個別指導型<br />ホームページ作成セミナー</p>
+      <h1 class="mv__title">少人数個別指導型<br />ホームページ作成セミナー</h1>
       <ul class="mv__lists">
         <li class="mv__list">Web業界経験豊富なプロが指導</li>
         <li class="mv__list">業界未経験の方でも理解しやすいよう<br />丁寧で寄り添った指導</li>
         <li class="mv__list">少人数制のため質問がしやすい</li>
       </ul>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped lang="scss">

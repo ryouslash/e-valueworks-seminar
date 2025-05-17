@@ -7,11 +7,18 @@ import StudentWoman02 from '@/assets/img/student_woman02.png'
 import StudentMan01 from '@/assets/img/student_man01.png'
 
 // お客様の声を含んだ配列
-const reviews: { imgSrc: string; ageGroup: number | null; gender: string; voice: string }[] = [
+const reviews: {
+  imgSrc: string
+  ageGroup: number | null
+  gender: string
+  course: string
+  voice: string
+}[] = [
   {
     imgSrc: StudentWoman01,
     ageGroup: null,
     gender: '女性',
+    course: '0から作る！WordPress（ワードプレス）ホームページ作成講座',
     voice:
       '途中まで独学で作成しましたが、中々上手くいかず講座を申し込みました。わからないところや上手くいかないところを質問し、丁寧にやり方を教えていただきました。また作成途中からの進め方なども教えていただき、あっという間で楽しい1時間でした。習ったところを自分で次のレッスンまでに作成し、講座で質問と次の作業を習うという感じで受講を続けていこうと思います。わかりやすくおすすめの講座です！',
   },
@@ -19,6 +26,7 @@ const reviews: { imgSrc: string; ageGroup: number | null; gender: string; voice:
     imgSrc: StudentWoman02,
     ageGroup: 60,
     gender: '女性',
+    course: '0から作る！WordPress（ワードプレス）ホームページ作成講座',
     voice:
       '宿泊施設の紹介や予約のページを自分で作りたくて申し込みしました。難しくて高齢の私に出来るかなぁと思いながらの第一歩ですが始めて見て出来そうな気がしました。完成までどうぞよろしくお願い致します。頑張ります！',
   },
@@ -26,6 +34,7 @@ const reviews: { imgSrc: string; ageGroup: number | null; gender: string; voice:
     imgSrc: StudentMan01,
     ageGroup: 20,
     gender: '男性',
+    course: '0から作る！WordPress（ワードプレス）ホームページ作成講座',
     voice:
       '常に丁寧な説明でわかりやすく、受講生に合わせて、カスタマイズいただけて大変満足でした。一からホームページを作成したい方に特におすすめです。',
   },
@@ -86,7 +95,11 @@ onUnmounted(() => {
             <blockquote>
               <p>{{ review.voice }}</p>
             </blockquote>
-            <p>{{ review.ageGroup !== null ? review.ageGroup + '代' : '' }} {{ review.gender }}</p>
+            <p>
+              「{{ review.course }}」を受講　|　{{
+                review.ageGroup !== null ? review.ageGroup + '代' : ''
+              }}{{ review.gender }}
+            </p>
           </div>
         </li>
       </ul>
@@ -198,6 +211,7 @@ onUnmounted(() => {
     }
 
     > p {
+      font-size: 1.4rem;
       color: #555;
     }
   }
