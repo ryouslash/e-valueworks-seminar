@@ -11,7 +11,7 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
       meta: {
-        title: 'E-VALUE WORKS ホームページ作成セミナー',
+        title: 'E-VALUE WORKS セミナー情報サイト',
         description: 'E-VALUE WORKSがお届けするセミナー情報をまとめたサイトです。',
       },
     },
